@@ -1,5 +1,6 @@
 .list {
   background-color: var(--background-color);
+  margin-top: 70px;
 }
 
 .item {
@@ -10,6 +11,29 @@
   margin: 10px;
   padding: 10px;
   gap: 2rem;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0 5px 15px #000;
+  transition: all 0.2s;
+}
+.item:hover {
+  background-color: var(--background-color);
+}
+.itemMark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 0 0px 40px 40px;
+  color: #fff;
+  text-shadow: 1px 1px 1px var(--accent-color);
+  height: 40px;
+  right: 15px;
+  top: -10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  background-color: var(--secondary-color);
+  box-shadow: 0px 0px 3px var(--accent-color);
 }
 .imageInList {
   width: 100px;
