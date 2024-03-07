@@ -1,8 +1,15 @@
 .list {
   background-color: var(--background-color);
   margin-top: 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
 }
-
+@media screen and (max-width: 720px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+}
 .item {
   background-color: var(--primary-color);
   display: flex;

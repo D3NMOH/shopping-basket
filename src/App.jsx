@@ -8,7 +8,6 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
-import CartImage from "./assets/cart.svg";
 
 const style = {
   position: "absolute",
@@ -26,6 +25,7 @@ const style = {
 function App() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
+  const handleOpenUser = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
     <>

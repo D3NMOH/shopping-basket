@@ -1,10 +1,12 @@
 import styles from "./TopBar.module.css";
 
-export default function TopBar({ handleOpen }) {
+export default function TopBar({ handleOpen, handleOpenUser }) {
   return (
     <div className={styles.TopBar}>
-      Top Bar Login usw.
-      <div onClick={handleOpen} className={styles.cartButton}>
+      <div onClick={handleOpenUser} className={styles.topBarButton}>
+        <i className="fa-solid fa-circle-user"></i>
+      </div>
+      <div onClick={handleOpen} className={styles.topBarButton}>
         <i className="fa-solid fa-cart-shopping"></i>
       </div>
     </div>
