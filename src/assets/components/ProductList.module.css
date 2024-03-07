@@ -1,0 +1,18 @@
+.list {
+  background-color: var(--background-color);
+}
+
+.item {
+  background-color: var(--primary-color);
+  display: flex;
+  color: var(--accent-color);
+  border-radius: 14px;
+  margin: 10px;
+  padding: 10px;
+  gap: 2rem;
+}
+.imageInList {
+  width: 100px;
+  height: 100px;
+  border-radius: 7px;
+}
