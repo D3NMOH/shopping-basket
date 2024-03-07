@@ -8,15 +8,21 @@
   display: flex;
   color: var(--accent-color);
   border-radius: 14px;
-  margin: 10px;
+  margin: 15px;
   padding: 10px;
   gap: 2rem;
   border: 1px solid var(--secondary-color);
   box-shadow: 0 5px 15px #000;
+  text-shadow: 1px 1px 1px var(--background-color);
   transition: all 0.2s;
 }
 .item:hover {
   background-color: var(--background-color);
+  scale: 1.01;
+}
+.item:active {
+  background-color: var(--primary-color);
+  scale: 0.99;
 }
 .itemMark {
   display: flex;
