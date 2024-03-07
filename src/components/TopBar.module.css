@@ -21,7 +21,7 @@
   box-shadow: 0px 0px 5px var(--accent-color);
   z-index: 9;
 }
-.cartButton {
+.topBarButton {
   padding: 10px 15px 10px 15px;
   background-color: var(--accent-color);
   border-radius: 7px;
@@ -31,12 +31,12 @@
   box-shadow: 0px 0px 2px #000;
   transition: all 0.2s;
 }
-.cartButton:hover {
+.topBarButton:hover {
   background-color: var(--accent-color);
   box-shadow: 0px 0px 10px var(--background-color);
   scale: 1.1;
 }
-.cartButton:active {
+.topBarButton:active {
   background-color: var(--background-color);
   color: var(--accent-color);
   box-shadow: none;
