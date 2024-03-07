@@ -1,13 +1,14 @@
-import ProductList from "./assets/components/ProductList";
-import TopBar from "./assets/components/TopBar";
+import ProductList from "./components/ProductList";
+import TopBar from "./components/TopBar";
 import "./App.css";
 import * as React from "react";
+import Button from "@mui/material/Button";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import CartImage from "./assets/cart.svg";
 
 const style = {
   position: "absolute",
@@ -15,9 +16,10 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
+  bgcolor: "var(--background-color)",
+  border: "1px solid var(--secondary-color)",
+  boxShadow: "0 15px 30px #000",
+  borderRadius: "10px",
   p: 4,
 };
 
@@ -44,17 +46,20 @@ function App() {
           }}
         >
           <Fade in={open}>
-            <Box sx={style}>
+            <Box sx={style} className="cart">
               <Typography
                 id="transition-modal-title"
                 variant="h6"
                 component="h2"
               >
-                Text in a modal
+                Cart
               </Typography>
               <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                Goods that you wanna buy
               </Typography>
+              <div className="cartButton">
+                <i className="fa-solid fa-wallet"></i> Checkout
+              </div>
             </Box>
           </Fade>
         </Modal>
