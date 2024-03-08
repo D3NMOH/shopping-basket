@@ -25,8 +25,7 @@
   padding: 10px 15px 10px 15px;
   background-color: var(--accent-color);
   border-radius: 7px;
-  justify-content: center;
-  align-items: center;
+
   text-shadow: 0px 0px 20px #000;
   box-shadow: 0px 0px 2px #000;
   transition: all 0.2s;
@@ -42,7 +41,17 @@
   box-shadow: none;
   scale: 0.98;
 }
+.topBarButton:visited {
+  color: var(--background-color);
+}
 .logo {
   width: 50px;
   filter: drop-shadow(0 0 10px #000);
+}
+.navigation {
+  display: flex;
+  color: var(--primary-color);
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }

@@ -11,6 +11,8 @@
   --tertary-color: #fc2e20;
   --background-color: #fdb750;
   --accent-color: #010100;
+
+  text-decoration: none;
 }
 
 body {

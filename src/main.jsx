@@ -11,15 +11,16 @@ import { ProductDetails } from "./components/ProductDetails.jsx";
 import "./App.css";
 import * as React from "react";
 import RootLayout from "./components/RootLayout/index.jsx";
+import HomePage from "./components/HomePage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     children: [
-      { path: "/HomePage" },
+      { path: "/HomePage", element: <HomePage /> },
       {
-        path: "/ProductList",
+        path: "/Products",
         children: [
           {
             index: true,

@@ -20,16 +20,21 @@ export function ProductDetails() {
     <div
       className={styles.productdetails}
       style={{
-        backgroundImage: `url(${product.image})`,
+        // backgroundImage: `url(${product.image})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
+      <img src={product.thumbnail} alt="laptop" className={styles.preview} />
       <div className={styles.description}>
-        {/* <img className={styles.preview} src={product.image} alt={product.title} /> */}
-        <h2 className={styles.title}>{product.title}</h2>
-        <p className={styles.tagline}>{product.stock}</p>
+        <div>
+          <p>{product.title}</p>
+          <p className={styles.description}>{product.description}</p>
+          <p className={styles.price}>{product.price}</p>
+        </div>
+        {/* <h2 className={styles.title}>{product.title}</h2>
+        <p className={styles.tagline}>{product.stock}</p> */}
       </div>
     </div>
   );

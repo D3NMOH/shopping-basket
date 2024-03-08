@@ -12,6 +12,7 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
 import HomePage from "../HomePage";
+import { ProductDetails } from "../ProductDetails";
 
 const style = {
   position: "absolute",
@@ -82,8 +83,6 @@ function RootLayout() {
             </Fade>
           </Modal>
         </div>
-        <HomePage />
-        <ProductList />
         <CSSTransition
           in={true}
           timeout={300}
