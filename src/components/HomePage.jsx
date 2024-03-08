@@ -1,10 +1,10 @@
 import styles from "./HomePage.module.css";
-import smartphone from "../../../public/smartphone.jpeg";
-import laptop from "../../../public/laptop.png";
+import smartphone from "../assets/smartphone.jpeg";
+import laptop from "../assets/laptop.png";
 
 export default function HomePage() {
   return (
-    <div>
+    <div className={styles.container}>
       <div>
         <p className={styles.storename}>Super Cool Electronics Store </p>
         <p className={styles.slogan}>Best goods, best prices!</p>

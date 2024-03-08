@@ -1,9 +1,6 @@
-import ProductList from "./components/ProductList";
-import TopBar from "./components/TopBar";
-import HomePage from "./components/HomePage";
-import "./App.css";
-import * as React from "react";
+import styles from "./Login.module.css";
 import Button from "@mui/material/Button";
+import * as React from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -23,21 +20,19 @@ const style = {
   p: 4,
 };
 
-function App() {
-  const [openCart, setOpenCart] = React.useState(false);
-  const handleOpenCart = () => setOpenCart(true);
-  const handleCloseCart = () => setOpenCart(false);
+const [openLogin, setOpenLogin] = React.useState(false);
+const handleCloseLogin = () => setOpen(false);
+
+export default function Login({ handleOpenLogin, handleCloseLogin }) {
   return (
-    <>
-      <TopBar handleOpenCart={handleOpenCart} />
-      <HomePage />
-      {/* <ProductList /> */}
+    <div>
+      This is the shopping cart!
       <div>
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
-          open={openCart}
-          onClose={handleCloseCart}
+          open={open}
+          onClose={handleCloseLogin}
           closeAfterTransition
           slots={{ backdrop: Backdrop }}
           slotProps={{
@@ -46,22 +41,8 @@ function App() {
             },
           }}
         >
-          <Fade in={openCart}>
+          <Fade in={open}>
             <Box sx={style} className="cart">
-              <div
-                className="cartButton"
-                onClick={handleCloseCart}
-                style={{
-                  display: "flex",
-                  marginTop: "20px",
-                  width: "20px",
-                  height: "20px",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <i className="fa-solid fa-close"></i>
-              </div>
               <Typography
                 id="transition-modal-title"
                 variant="h6"
@@ -79,8 +60,6 @@ function App() {
           </Fade>
         </Modal>
       </div>
-    </>
+    </div>
   );
 }
-
-export default App;
