@@ -1,18 +1,13 @@
 import "./RootLayout.module.css";
 import TopBar from "../TopBar";
 import { Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { CSSTransition } from "react-transition-group";
-import ProductList from "../ProductList";
 import * as React from "react";
-import Button from "@mui/material/Button";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
-import HomePage from "../HomePage";
-import { ProductDetails } from "../ProductDetails";
 
 const style = {
   position: "absolute",
