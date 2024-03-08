@@ -11,7 +11,7 @@ export default function ProductList() {
             <div>
               <p>{item.title}</p>
               <p>{item.description}</p>
-              <p>{item.price}</p>
+              <p className={styles.price}>{item.price}</p>
             </div>
             <div className={styles.itemMark}>-30%</div>
           </div>
