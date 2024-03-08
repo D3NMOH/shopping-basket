@@ -1,5 +1,6 @@
 import ProductList from "./components/ProductList";
 import TopBar from "./components/TopBar";
+import HomePage from "./components/HomePage";
 import "./App.css";
 import * as React from "react";
 import Button from "@mui/material/Button";
@@ -29,7 +30,8 @@ function App() {
   return (
     <>
       <TopBar handleOpenCart={handleOpenCart} />
-      <ProductList />
+      <HomePage />
+      {/* <ProductList /> */}
       <div>
         <Modal
           aria-labelledby="transition-modal-title"
