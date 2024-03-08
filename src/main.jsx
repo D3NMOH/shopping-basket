@@ -1,11 +1,6 @@
 import "./index.css";
 import ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  BrowserRouter,
-  Route,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductList from "./components/ProductList";
 import { ProductDetails } from "./components/ProductDetails.jsx";
 import "./App.css";
