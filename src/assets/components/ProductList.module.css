@@ -18,6 +18,7 @@
 .item:hover {
   background-color: var(--background-color);
 }
+
 .itemMark {
   display: flex;
   justify-content: center;

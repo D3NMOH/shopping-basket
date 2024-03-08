@@ -1,5 +1,6 @@
 import ProductList from "./assets/components/ProductList";
 import TopBar from "./assets/components/TopBar";
+import HomePage from "../src/assets/components/HomePage";
 import "./App.css";
 import * as React from "react";
 import Backdrop from "@mui/material/Backdrop";
@@ -28,6 +29,7 @@ function App() {
   return (
     <>
       <TopBar handleOpen={handleOpen} />
+      <HomePage />
       <ProductList />
       <div>
         <Modal
