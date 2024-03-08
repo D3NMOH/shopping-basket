@@ -1,5 +1,5 @@
 import styles from "./ProductList.module.css";
-import { goods } from "../data/goods";
+import { goods } from "../../data/goods";
 
 export default function ProductList() {
   return (

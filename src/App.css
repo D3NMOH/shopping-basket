@@ -37,6 +37,10 @@
   box-shadow: 0 1px 2px #000;
   text-transform: uppercase;
   font-weight: 800;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
   transition: all 0.2s;
 }
 .cartButton:hover {
@@ -46,4 +50,12 @@
 .cartButton:active {
   box-shadow: 0 1px 2px #000;
   scale: 0.99;
+}
+@media screen and (max-width: 540px) {
+  .cart {
+    max-width: 100dvw;
+    height: 100svh;
+    margin: 0;
+    padding-top: 100px;
+  }
 }

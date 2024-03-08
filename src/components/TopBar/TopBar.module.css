@@ -42,3 +42,7 @@
   box-shadow: none;
   scale: 0.98;
 }
+.logo {
+  width: 50px;
+  filter: drop-shadow(0 0 10px #000);
+}
