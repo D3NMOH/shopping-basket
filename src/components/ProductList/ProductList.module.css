@@ -31,6 +31,7 @@
   background-color: var(--primary-color);
   scale: 0.99;
 }
+
 .itemMark {
   display: flex;
   justify-content: center;
