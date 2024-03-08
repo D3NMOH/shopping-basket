@@ -29,12 +29,13 @@ export function ProductDetails() {
       <img src={product.thumbnail} alt="laptop" className={styles.preview} />
       <div className={styles.description}>
         <div>
-          <p>{product.title}</p>
+          <h1>{product.title}</h1>
           <p className={styles.description}>{product.description}</p>
           <p className={styles.price}>{product.price}</p>
         </div>
-        {/* <h2 className={styles.title}>{product.title}</h2>
-        <p className={styles.tagline}>{product.stock}</p> */}
+        <p>
+          There are still <strong>{product.stock}</strong> Pcs available
+        </p>
       </div>
     </div>
   );
