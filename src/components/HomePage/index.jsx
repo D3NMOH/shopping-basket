@@ -28,7 +28,8 @@ export default function HomePage() {
               }}
             ></i>
             <br />
-            Scan it with your smartphone in our App and take a 10% discount!
+            Scan the QR code with your smartphone in our app and get
+            <p className={styles.discount}>10% off!</p>
             <div className={styles.stores}>
               <img src={gplay} className={styles.gplay} alt="gplay" />
               <img src={appstore} className={styles.appstore} alt="appstore" />
