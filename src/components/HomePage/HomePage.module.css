@@ -1,0 +1,128 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.storename {
+  margin-top: 120px;
+  text-align: center;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.slogan {
+  color: var(--secondary-color);
+  font-size: 23px;
+  text-align: center;
+  margin-top: -20px;
+}
+
+.item {
+  width: 532px;
+  max-width: 80vw;
+  background-color: var(--primary-color);
+  display: flex;
+  color: var(--accent-color);
+  border-radius: 14px;
+  margin-bottom: 20px;
+  padding: 20px;
+  gap: 2rem;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0 2px 5px #000;
+  transition: all 0.2s;
+}
+
+.item:hover {
+  background-color: var(--background-color);
+  box-shadow: 0 5px 15px #000;
+  scale: 1.01;
+}
+.item:active {
+  background-color: var(--primary-color);
+  box-shadow: 0 1px 2px #000;
+  scale: 0.99;
+}
+
+.promoImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 7px;
+}
+
+.price {
+  display: flex;
+  width: max-content;
+  color: #fff;
+  background-color: var(--secondary-color);
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 7px;
+  justify-content: center;
+  align-items: center;
+}
+.link {
+  text-decoration: none;
+  color: #000;
+}
+.promoList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+.barcodeContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+.barcode {
+  width: 150px;
+  height: 150px;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px #000;
+  transform: rotate(-15deg);
+}
+.barcodeText {
+  color: var(--secondary-color);
+  width: 200px;
+  align-self: flex-end;
+}
+.itemList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.stores {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.appstore {
+  width: 100px;
+}
+.gplay {
+  width: 127px;
+}
+
+@media screen and (max-width: 700px) {
+  .stores {
+    display: flex;
+    flex-direction: column;
+  }
+  .appstore {
+    width: 100px;
+    padding-left: 7px;
+  }
+  .gplay {
+    width: 113px;
+  }
+}

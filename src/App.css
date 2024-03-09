@@ -24,11 +24,11 @@
 .cartButton {
   background-image: linear-gradient(
     var(--primary-color),
-    var(--tertary-color),
-    var(--tertary-color),
+    var(--secondary-color),
+    var(--secondary-color),
     var(--secondary-color)
   );
-  color: var(--background-color);
+  color: #fff;
   border-radius: 7px;
   border: none;
   padding: 10px;
