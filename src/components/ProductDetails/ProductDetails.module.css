@@ -1,10 +1,12 @@
 .productdetails {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
   margin-top: 130px;
   flex-direction: row;
   gap: 20px;
   align-items: flex-start;
   justify-content: center;
+  padding: 40px;
 }
 .description {
   display: flex;
@@ -18,9 +20,7 @@
   border-radius: 20px;
   box-shadow: #000 0 10px 20px;
   width: 300px;
-  position: absolute;
-  left: 30px;
-  top: 140px;
+  max-width: 30vw;
 }
 .title {
   font-size: 3rem;

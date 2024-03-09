@@ -1,18 +1,19 @@
 import "./index.css";
+import "./App.css";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductList from "./components/ProductList";
-import { ProductDetails } from "./components/ProductDetails.jsx";
-import "./App.css";
+import { ProductDetails } from "./components/ProductDetails";
 import * as React from "react";
-import RootLayout from "./components/RootLayout/index.jsx";
-import HomePage from "./components/HomePage.jsx";
+import RootLayout from "./components/RootLayout";
+import HomePage from "./components/HomePage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     children: [
+      { index: true, element: <HomePage /> },
       { path: "/HomePage", element: <HomePage /> },
       {
         path: "/Products",

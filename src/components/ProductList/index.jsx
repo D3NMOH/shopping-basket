@@ -7,8 +7,12 @@ export default function ProductList() {
     <div className={styles.list}>
       {goods.map((item) => {
         return (
-          <Link to={`/Products/${item.id}`} style={{ textDecoration: "none" }}>
-            <div key={item.id} className={styles.item}>
+          <Link
+            key={item.id}
+            to={`/Products/${item.id}`}
+            style={{ textDecoration: "none" }}
+          >
+            <div className={styles.item}>
               <img src={item.thumbnail} className={styles.imageInList} />
               <div>
                 <p>{item.title}</p>

@@ -8,7 +8,6 @@
 
   --primary-color: #fd7f20;
   --secondary-color: #fc2e20;
-  --tertary-color: #fc2e20;
   --background-color: #fdb750;
   --accent-color: #010100;
 }
@@ -20,22 +19,22 @@ body {
   display: flex;
   place-items: center;
   justify-content: center;
-  background-color: var(--background-color);
+  background-color: #fff;
 }
-.fa-cart-shopping,
+/* .fa-cart-shopping,
 .fa-circle-user,
 .fa-list,
 .fa-house-chimney {
   visibility: hidden;
   font-size: 0;
-}
+} */
 
 @media screen and (max-width: 600px) {
-  .fa-cart-shopping,
+  /* .fa-cart-shopping,
   .fa-circle-user,
   .fa-list,
   .fa-house-chimney {
     visibility: visible;
     font-size: 15px;
-  }
+  } */
 }

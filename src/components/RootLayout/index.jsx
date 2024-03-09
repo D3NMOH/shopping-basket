@@ -80,7 +80,7 @@ function RootLayout() {
         </div>
         <CSSTransition
           in={true}
-          timeout={300}
+          timeout={500}
           classNames="my-node"
           unmountOnExit
         >

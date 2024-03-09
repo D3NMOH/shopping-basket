@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { goods } from "../data/goods";
+import { goods } from "../../data/goods";
 import styles from "./ProductDetails.module.css";
 
 export function ProductDetails() {
@@ -19,12 +19,14 @@ export function ProductDetails() {
   return (
     <div
       className={styles.productdetails}
-      style={{
-        // backgroundImage: `url(${product.image})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      style={
+        {
+          // backgroundImage: `url(${product.image})`,
+          // backgroundRepeat: "no-repeat",
+          // backgroundSize: "cover",
+          // backgroundPosition: "center",
+        }
+      }
     >
       <img src={product.thumbnail} alt="laptop" className={styles.preview} />
       <div className={styles.description}>
