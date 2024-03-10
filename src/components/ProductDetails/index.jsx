@@ -1,10 +1,13 @@
 import { useParams } from "react-router-dom";
 import { goods } from "../../data/goods";
 import styles from "./ProductDetails.module.css";
+import { createContext, useContext } from "react";
 
 export function ProductDetails() {
   const { prodId } = useParams();
   const product = goods.find((product) => product.id === parseInt(prodId));
+  const addToCart = createContext(null);
+  const inCart = useContext(addToCart);
 
   if (!product) {
     return (
@@ -38,6 +41,9 @@ export function ProductDetails() {
         <p>
           There are still <strong>{product.stock}</strong> Pcs available
         </p>
+        <button className={styles.prodButton} onClick={() => inCart(prodId)}>
+          Add to your cart <i className="fa-solid fa-circle-plus"></i>
+        </button>
       </div>
     </div>
   );
