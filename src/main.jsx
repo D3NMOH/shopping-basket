@@ -7,6 +7,7 @@ import { ProductDetails } from "./components/ProductDetails";
 import * as React from "react";
 import RootLayout from "./components/RootLayout";
 import HomePage from "./components/HomePage";
+import Login from "./components/Login";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: "/HomePage", element: <HomePage /> },
+      { path: "/User", element: <Login /> },
       {
         path: "/Products",
         children: [
