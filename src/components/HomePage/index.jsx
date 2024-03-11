@@ -16,7 +16,7 @@ export default function HomePage() {
       <div className={styles.promoList}>
         <div className={styles.barcodeContainer}>
           <img src={promo10} className={styles.barcode} alt="qrcode" />
-          <p className={styles.barcodeText}>
+          <div className={styles.barcodeText}>
             <i className="fa-solid fa-reply" style={{ fontSize: "40px" }}></i>
             <i
               className="fa-solid fa-mobile"
@@ -34,7 +34,7 @@ export default function HomePage() {
               <img src={gplay} className={styles.gplay} alt="gplay" />
               <img src={appstore} className={styles.appstore} alt="appstore" />
             </div>
-          </p>
+          </div>
         </div>
         <div className={styles.itemList}>
           <div className={styles.item}>
