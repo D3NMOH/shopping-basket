@@ -1,6 +1,8 @@
 import styles from "./ProductList.module.css";
 import { goods } from "../../data/goods";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context";
+import { useContext } from "react";
 
 export default function ProductList() {
   return (
@@ -17,9 +19,12 @@ export default function ProductList() {
               <div>
                 <p>{item.title}</p>
                 <p>{item.description}</p>
-                <p className={styles.price}>{item.price}</p>
+                <p className={styles.price}>{item.price} €</p>
               </div>
-              <div className={styles.itemMark}>-30%</div>
+              <div className={styles.itemMark}>
+                <strong style={{ fontSize: "15px" }}>-10%</strong>
+                in App
+              </div>
             </div>
           </Link>
         );

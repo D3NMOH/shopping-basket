@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
 import { goods } from "../../data/goods";
 import styles from "./ProductDetails.module.css";
-import { createContext, useContext } from "react";
+import { useContext } from "react";
+import { UserContext } from "../context";
 
 export function ProductDetails() {
   const { prodId } = useParams();
@@ -34,7 +35,7 @@ export function ProductDetails() {
         <div>
           <h1>{product.title}</h1>
           <p className={styles.description}>{product.description}</p>
-          <p className={styles.price}>{product.price}</p>
+          <p className={styles.price}>{product.price} €</p>
         </div>
         <p>
           There are still <strong>{product.stock}</strong> Pcs available

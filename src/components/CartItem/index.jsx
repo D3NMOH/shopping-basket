@@ -1,10 +1,10 @@
-import React from "react";
-import { Context, useContext } from "../context";
+import React, { useContext } from "react";
+import { UserContext } from "../context";
 import styles from "./CartItem.module.css";
 
 const CartItem = (probs) => {
   const { product } = probs;
-  const { increase, decrease, removeItem } = useContext(Context);
+  const { increase, decrease, removeItem } = useContext(UserContext);
   return (
     <div className={styles.listItem}>
       <img
@@ -19,7 +19,7 @@ const CartItem = (probs) => {
         </span>
         <span style={{ display: "flex" }}>
           <span>
-            <b>Price:</b> ₺ {product.price.toFixed(2)} <br />
+            <b>Price:</b> {product.price.toFixed(2)} <br />
           </span>
           {product.count > 1 && (
             <>
