@@ -30,10 +30,14 @@ export function ProductDetails() {
         }
       }
     >
-      <img src={product.thumbnail} alt="laptop" className={styles.preview} />
+      <img
+        src={product.thumbnail}
+        alt="product image"
+        className={styles.preview}
+      />
       <div className={styles.description}>
         <div>
-          <h1>{product.title}</h1>
+          <h1 className={styles.title}>{product.title}</h1>
           <p className={styles.description}>{product.description}</p>
           <p className={styles.price}>{product.price} €</p>
         </div>
