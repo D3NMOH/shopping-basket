@@ -46,7 +46,13 @@ export default function HomePage() {
                 style={{ textDecoration: "none" }}
               >
                 <div className={styles.item}>
-                  <img src={item.thumbnail} className={styles.promoImage} />
+                  <div className={styles.promoImageContainer}>
+                    <img src={item.thumbnail} className={styles.promoImage} />
+                    <img
+                      src={item.thumbnail}
+                      className={styles.promoImageGlow}
+                    />
+                  </div>
                   <div>
                     <p className={styles.title}>{item.title}</p>
                     <p>{item.description}</p>

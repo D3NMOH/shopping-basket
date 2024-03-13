@@ -30,11 +30,18 @@ export function ProductDetails() {
         }
       }
     >
-      <img
-        src={product.thumbnail}
-        alt="product image"
-        className={styles.preview}
-      />
+      <div className={styles.preview}>
+        <img
+          src={product.thumbnail}
+          alt="product image"
+          className={styles.previewImg}
+        />
+        <img
+          src={product.thumbnail}
+          alt="product image"
+          className={styles.previewImgGlow}
+        />
+      </div>
       <div className={styles.description}>
         <div>
           <h1 className={styles.title}>{product.title}</h1>

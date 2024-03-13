@@ -15,7 +15,10 @@ export default function ProductList() {
             style={{ textDecoration: "none" }}
           >
             <div className={styles.item}>
-              <img src={item.thumbnail} className={styles.imageInList} />
+              <div className={styles.imgContainer}>
+                <img src={item.thumbnail} className={styles.imageInList} />
+                <img src={item.thumbnail} className={styles.imageInListGlow} />
+              </div>
               <div>
                 <p>{item.title}</p>
                 <p>{item.description}</p>
