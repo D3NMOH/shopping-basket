@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <div className={styles.container}>
       <div>
-        <p className={styles.storename}>Super Cool Electronics Store </p>
+        <p className={styles.storename}>Welcome to Grapefruit Tech!</p>
         <p className={styles.slogan}>Best goods, best prices!</p>
       </div>
       <div className={styles.promoList}>

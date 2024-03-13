@@ -6,32 +6,48 @@ import { useContext } from "react";
 
 export default function ProductList() {
   return (
-    <div className={styles.list}>
-      {goods.map((item) => {
-        return (
-          <Link
-            key={item.id}
-            to={`/Products/${item.id}`}
-            style={{ textDecoration: "none" }}
-          >
-            <div className={styles.item}>
-              <div className={styles.imgContainer}>
-                <img src={item.thumbnail} className={styles.imageInList} />
-                <img src={item.thumbnail} className={styles.imageInListGlow} />
+    <div
+      style={{
+        margin: 0,
+        padding: 0,
+        boxSizing: "border-box",
+        justifyContent: "center",
+        alignItems: "center",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <p className={styles.storename}>Our goods for you</p>
+      <div className={styles.list}>
+        {goods.map((item) => {
+          return (
+            <Link
+              key={item.id}
+              to={`/Products/${item.id}`}
+              style={{ textDecoration: "none" }}
+            >
+              <div className={styles.item}>
+                <div className={styles.imgContainer}>
+                  <img src={item.thumbnail} className={styles.imageInList} />
+                  <img
+                    src={item.thumbnail}
+                    className={styles.imageInListGlow}
+                  />
+                </div>
+                <div>
+                  <p>{item.title}</p>
+                  <p>{item.description}</p>
+                  <p className={styles.price}>{item.price} €</p>
+                </div>
+                <div className={styles.itemMark}>
+                  <strong style={{ fontSize: "15px" }}>-10%</strong>
+                  in App
+                </div>
               </div>
-              <div>
-                <p>{item.title}</p>
-                <p>{item.description}</p>
-                <p className={styles.price}>{item.price} €</p>
-              </div>
-              <div className={styles.itemMark}>
-                <strong style={{ fontSize: "15px" }}>-10%</strong>
-                in App
-              </div>
-            </div>
-          </Link>
-        );
-      })}
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }

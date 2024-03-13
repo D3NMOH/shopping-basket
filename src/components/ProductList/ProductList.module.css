@@ -1,6 +1,6 @@
 .list {
   background-color: #fff;
-  margin-top: 120px;
+  margin-top: 50px;
   display: grid;
   gap: 15px;
   justify-content: center;
@@ -8,7 +8,18 @@
   padding: 20px;
   flex-wrap: wrap;
 }
-
+.storename {
+  font-family: "Press Start 2P", system-ui;
+  font-style: normal;
+  margin-top: 120px;
+  text-align: center;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: 600;
+  max-width: 90vw;
+  text-align: center;
+}
 .item {
   background-color: var(--primary-color);
   display: flex;
@@ -48,7 +59,7 @@
   right: 15px;
   top: -20px;
   font-size: 10px;
-  width: 80px;
+  width: 40px;
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 10px;

@@ -29,7 +29,7 @@ export default function Login() {
             />
             <Button
               variant="contained"
-              style={{ backgroundColor: "#000" }}
+              style={{ backgroundColor: "#000", fontSize: "20px" }}
               onClick={handleLogout}
             >
               Logout
