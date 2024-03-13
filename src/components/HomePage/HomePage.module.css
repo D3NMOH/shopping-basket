@@ -28,8 +28,7 @@
 }
 
 .item {
-  width: 532px;
-  max-width: 80vw;
+  max-width: 70vw;
   background-color: var(--primary-color);
   display: flex;
   color: var(--accent-color);
@@ -161,5 +160,16 @@
   }
   .gplay {
     width: 113px;
+  }
+  .item {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 70vw;
+    padding: 40px;
+    gap: 1rem;
+    border: 1px solid var(--secondary-color);
+    box-shadow: 0 0px 2px #000, inset 0px 0px 80px var(--secondary-color);
+    transition: all 0.2s;
   }
 }

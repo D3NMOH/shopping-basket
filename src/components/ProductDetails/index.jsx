@@ -2,11 +2,12 @@ import { useParams } from "react-router-dom";
 import { goods } from "../../data/goods";
 import styles from "./ProductDetails.module.css";
 import { useContext } from "react";
-import { UserContext } from "../context";
+import { CartContext } from "../context/context";
 
 export function ProductDetails() {
   const { prodId } = useParams();
   const product = goods.find((product) => product.id === parseInt(prodId));
+  const { addToCart } = useContext(CartContext);
 
   if (!product) {
     return (
@@ -30,6 +31,7 @@ export function ProductDetails() {
         }
       }
     >
+      <h1 className={styles.title}>{product.title}</h1>
       <div className={styles.preview}>
         <img
           src={product.thumbnail}
@@ -44,14 +46,16 @@ export function ProductDetails() {
       </div>
       <div className={styles.description}>
         <div>
-          <h1 className={styles.title}>{product.title}</h1>
           <p className={styles.description}>{product.description}</p>
           <p className={styles.price}>{product.price} €</p>
         </div>
         <p>
           There are still <strong>{product.stock}</strong> Pcs available
         </p>
-        <button className={styles.prodButton}>
+        <button
+          className={styles.prodButton}
+          onClick={() => addToCart(product)}
+        >
           Add to your cart <i className="fa-solid fa-circle-plus"></i>
         </button>
       </div>

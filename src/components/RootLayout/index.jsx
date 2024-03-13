@@ -10,8 +10,7 @@ import Typography from "@mui/material/Typography";
 import { UserProvider } from "../context";
 import { useContext, useState } from "react";
 import Cart from "../Cart";
-import ProductList from "../ProductList";
-import { goods } from "../../data/goods";
+import { CartProvider } from "../context/context";
 
 const style = {
   position: "absolute",
@@ -33,57 +32,64 @@ function RootLayout() {
 
   return (
     <UserProvider>
-      <TopBar handleOpenCart={handleOpenCart} />
-      <div>
-        <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          open={openCart}
-          onClose={handleCloseCart}
-          closeAfterTransition
-          slots={{ backdrop: Backdrop }}
-          slotProps={{
-            backdrop: {
-              timeout: 500,
-            },
-          }}
+      <CartProvider>
+        <TopBar handleOpenCart={handleOpenCart} />
+        <div>
+          <Modal
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
+            open={openCart}
+            onClose={handleCloseCart}
+            closeAfterTransition
+            slots={{ backdrop: Backdrop }}
+            slotProps={{
+              backdrop: {
+                timeout: 500,
+              },
+            }}
+          >
+            <Fade in={openCart}>
+              <Box sx={style} className="cart">
+                <div
+                  className="cartButton"
+                  onClick={handleCloseCart}
+                  style={{
+                    display: "flex",
+                    marginTop: "20px",
+                    width: "20px",
+                    height: "20px",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <i className="fa-solid fa-close"></i>
+                </div>
+                <Typography
+                  id="transition-modal-title"
+                  variant="h6"
+                  component="h2"
+                >
+                  Shopping Cart
+                </Typography>
+                <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                  <Cart />
+                </Typography>
+                <div className="cartButton">
+                  <i className="fa-solid fa-wallet"></i> Checkout
+                </div>
+              </Box>
+            </Fade>
+          </Modal>
+        </div>
+        <CSSTransition
+          in={true}
+          timeout={500}
+          classNames="my-node"
+          unmountOnExit
         >
-          <Fade in={openCart}>
-            <Box sx={style} className="cart">
-              <div
-                className="cartButton"
-                onClick={handleCloseCart}
-                style={{
-                  display: "flex",
-                  marginTop: "20px",
-                  width: "20px",
-                  height: "20px",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <i className="fa-solid fa-close"></i>
-              </div>
-              <Typography
-                id="transition-modal-title"
-                variant="h6"
-                component="h2"
-              >
-                Shopping Cart
-              </Typography>
-              <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                <Cart />
-              </Typography>
-              <div className="cartButton">
-                <i className="fa-solid fa-wallet"></i> Checkout
-              </div>
-            </Box>
-          </Fade>
-        </Modal>
-      </div>
-      <CSSTransition in={true} timeout={500} classNames="my-node" unmountOnExit>
-        <Outlet />
-      </CSSTransition>
+          <Outlet />
+        </CSSTransition>
+      </CartProvider>
     </UserProvider>
   );
 }
