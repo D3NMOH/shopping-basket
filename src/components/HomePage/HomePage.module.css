@@ -131,6 +131,10 @@
 .gplay {
   width: 127px;
 }
+.title {
+  font-weight: 700;
+  font-size: x-large;
+}
 
 @media screen and (max-width: 700px) {
   .stores {

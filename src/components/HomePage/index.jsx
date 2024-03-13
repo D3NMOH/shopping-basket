@@ -5,6 +5,7 @@ import promo10 from "../../assets/promo10.png";
 import gplay from "../../assets/gplay.png";
 import appstore from "../../assets/appstore.svg";
 import { Link } from "react-router-dom";
+import { promote } from "../../data/promote";
 
 export default function HomePage() {
   return (
@@ -37,39 +38,24 @@ export default function HomePage() {
           </div>
         </div>
         <div className={styles.itemList}>
-          <div className={styles.item}>
-            <Link to={`/Products/10`} className={styles.link}>
-              <img
-                src={smartphone}
-                className={styles.promoImage}
-                alt="Smartphone"
-              />
-              <div>
-                <p>Smartphones</p>
-                <p>Google Pixel 8 Smartphone</p>
-                <p>
-                  Google Pixel 8 - Android smartphone without SIM lock with
-                  powerful Pixel camera, 24 hour battery life and powerful
-                  security features - Obsidian, 128GB
-                </p>
-                <p className={styles.price}>Price 799€</p>
-              </div>
-            </Link>
-          </div>
-          <div className={styles.item}>
-            <Link to={`/Products/11`} className={styles.link}>
-              <img src={laptop} className={styles.promoImage} alt="Laptop" />
-              <div>
-                <p>Laptops</p>
-                <p>ASUS ROG Strix Scar 16</p>
-                <p>
-                  ASUS ROG Strix Scar 16 WQXGA 240Hz i9-13980HX 32GB/2TB SSD
-                  RTX4080 Win11
-                </p>
-                <p className={styles.price}>Price 3499€</p>
-              </div>
-            </Link>
-          </div>
+          {promote.map((item) => {
+            return (
+              <Link
+                key={item.id}
+                to={`/Products/${item.id}`}
+                style={{ textDecoration: "none" }}
+              >
+                <div className={styles.item}>
+                  <img src={item.thumbnail} className={styles.promoImage} />
+                  <div>
+                    <p className={styles.title}>{item.title}</p>
+                    <p>{item.description}</p>
+                    <p className={styles.price}>{item.price} €</p>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

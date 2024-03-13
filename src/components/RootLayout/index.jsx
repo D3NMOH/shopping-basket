@@ -2,13 +2,13 @@ import "./RootLayout.module.css";
 import TopBar from "../TopBar";
 import { NavLink, Outlet } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
-import * as React from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
-import { Context, useContext } from "../context";
+import { UserProvider } from "../context";
+import { useContext, useState } from "react";
 import Cart from "../Cart";
 import ProductList from "../ProductList";
 import { goods } from "../../data/goods";
@@ -18,7 +18,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: "80vw",
   bgcolor: "var(--background-color)",
   border: "1px solid var(--secondary-color)",
   boxShadow: "0 15px 30px #000",
@@ -27,12 +27,12 @@ const style = {
 };
 
 function RootLayout() {
-  const [openCart, setOpenCart] = React.useState(false);
+  const [openCart, setOpenCart] = useState(false);
   const handleOpenCart = () => setOpenCart(true);
   const handleCloseCart = () => setOpenCart(false);
 
   return (
-    <>
+    <UserProvider>
       <TopBar handleOpenCart={handleOpenCart} />
       <div>
         <Modal
@@ -69,10 +69,10 @@ function RootLayout() {
                 variant="h6"
                 component="h2"
               >
-                Cart
+                Shopping Cart
               </Typography>
               <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                Goods that you wanna buy
+                <Cart />
               </Typography>
               <div className="cartButton">
                 <i className="fa-solid fa-wallet"></i> Checkout
@@ -84,7 +84,7 @@ function RootLayout() {
       <CSSTransition in={true} timeout={500} classNames="my-node" unmountOnExit>
         <Outlet />
       </CSSTransition>
-    </>
+    </UserProvider>
   );
 }
 

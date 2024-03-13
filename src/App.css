@@ -7,12 +7,14 @@
   padding: 0;
   justify-content: center;
   align-items: center;
+  align-content: center;
 }
 .cart {
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(#fdb850ec, #fdb850ec),
-    url("./assets/cart.svg");
+  background-image: linear-gradient(#ffcc00d6, #ffcc00d6),
+    url("./assets/cart.svg"),
+    linear-gradient(var(--primary-color), var(--primary-color));
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -22,12 +24,7 @@
   display: flex;
 }
 .cartButton {
-  background-image: linear-gradient(
-    var(--primary-color),
-    var(--secondary-color),
-    var(--secondary-color),
-    var(--secondary-color)
-  );
+  background-image: linear-gradient(var(--accent-color), var(--accent-color));
   color: #fff;
   border-radius: 7px;
   border: none;
@@ -51,6 +48,25 @@
   box-shadow: 0 1px 2px #000;
   scale: 0.99;
 }
+
+.topBarButtonActive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 10px 15px 10px 15px;
+  background-color: var(--background-color);
+  border-radius: 7px;
+  color: var(--accent-color);
+  text-shadow: 0px 0px 20px #000;
+  box-shadow: none;
+  text-decoration: none;
+  height: 20px;
+  gap: 5px;
+  scale: 0.95;
+  transition: all 0.2s;
+}
+
 @media screen and (max-width: 540px) {
   .cart {
     max-width: 100dvw;

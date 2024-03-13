@@ -1,5 +1,32 @@
-import { createContext, useContext } from "react";
+import React, { useState, createContext } from "react";
+import Cart from "../Cart";
+import { goods } from "../../data/goods";
 
-const Context = createContext();
+export const UserContext = createContext();
 
-export { Context, useContext };
+export const UserProvider = ({ children }) => {
+  const [userName, setUserName] = useState("");
+  const [items, setItems] = useState([]);
+
+  function logIn(userName) {
+    setUserName(userName);
+  }
+  function logOut() {
+    setUserName("");
+  }
+
+  return (
+    <UserContext.Provider
+      value={{
+        userName,
+        logIn,
+        logged: userName.length > 0,
+        logOut,
+        items,
+        setItems,
+      }}
+    >
+      {children}
+    </UserContext.Provider>
+  );
+};

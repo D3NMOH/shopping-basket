@@ -1,10 +1,11 @@
 import styles from "./TopBar.module.css";
 import Logo from "../../assets/icon.png";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../context";
 
 export default function TopBar({ handleOpenCart }) {
-  const activeClass = (isActive) =>
-    styles.topBarButtonActive + (!isActive ? styles.topBarButton : "");
+  const { userName, logged } = useContext(UserContext);
 
   return (
     <div className={styles.TopBar}>
@@ -49,7 +50,9 @@ export default function TopBar({ handleOpenCart }) {
           }
         >
           <i className="fa-solid fa-circle-user"></i>
-          <p className={styles.navTitle}>User</p>
+          <p className={styles.navTitle}>
+            {userName === "" ? "User" : userName}
+          </p>
         </NavLink>
         <div onClick={handleOpenCart} className={styles.topBarButton}>
           <i className="fa-solid fa-cart-shopping"></i>
