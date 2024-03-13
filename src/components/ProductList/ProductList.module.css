@@ -55,10 +55,20 @@
   background-color: var(--secondary-color);
   box-shadow: 0px 0px 3px var(--accent-color);
 }
+.imgContainer {
+}
 .imageInList {
+  z-index: 9;
+  position: absolute;
   object-fit: contain;
   width: 120px;
   border-radius: 7px;
+}
+.imageInListGlow {
+  object-fit: contain;
+  width: 120px;
+  border-radius: 7px;
+  filter: blur(20px);
 }
 .price {
   display: flex;
