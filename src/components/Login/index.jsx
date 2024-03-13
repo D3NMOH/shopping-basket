@@ -15,12 +15,13 @@ export default function Login() {
   const handleLogout = () => {
     console.log(`Logged out`);
     logOut();
+    setName("");
   };
   return (
     <div className={styles.userBlock}>
       {logged === true ? (
         <>
-          <h1>Welcome, {userName}</h1>
+          <p className={styles.headText}>Welcome, {userName}</p>
           <div action="submit" method="post" className={styles.loginForm}>
             <img
               src={avatar}
@@ -38,7 +39,7 @@ export default function Login() {
         </>
       ) : (
         <>
-          <h1>Login to your customer area!</h1>
+          <p className={styles.headText}>Login to your customer area!</p>
           <div action="submit" method="post" className={styles.loginForm}>
             <TextField
               id="filled-basic"
@@ -50,6 +51,7 @@ export default function Login() {
                 backgroundColor: "#fff",
                 borderRadius: "7px 7px 0 0",
                 overflow: "hidden",
+                boxShadow: "inset 0px 0px 2px var(--accent-color)",
               }}
               onChange={(text) => setName(text.target.value)}
             />
