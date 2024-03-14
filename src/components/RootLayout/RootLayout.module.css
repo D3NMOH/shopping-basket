@@ -21,3 +21,31 @@ main {
   justify-content: center;
   align-items: center;
 }
+.cartHeadText {
+  font-family: "Press Start 2P", system-ui;
+  font-style: normal;
+  text-align: center;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: 600;
+  max-width: 90vw;
+  text-align: center;
+}
+@media screen and (max-width: 560px) {
+  .cartHeadText {
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    max-width: 50%;
+  }
+}
+@media screen and (max-width: 490px) {
+  .cartHeadText {
+    margin-top: 50px;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    max-width: 90%;
+  }
+}

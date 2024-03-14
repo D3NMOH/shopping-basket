@@ -11,6 +11,7 @@ import { UserProvider } from "../context";
 import { useContext, useState } from "react";
 import Cart from "../Cart";
 import { CartProvider } from "../context/context";
+import styles from "./RootLayout.module.css";
 
 const style = {
   position: "absolute",
@@ -50,12 +51,13 @@ function RootLayout() {
           >
             <Fade in={openCart}>
               <Box sx={style} className="cart">
+                <p className={styles.cartHeadText}>Shopping cart</p>
                 <div
                   className="cartButton"
                   onClick={handleCloseCart}
                   style={{
                     display: "flex",
-                    marginTop: "20px",
+                    position: "absolute",
                     width: "20px",
                     height: "20px",
                     alignItems: "center",
@@ -64,18 +66,17 @@ function RootLayout() {
                 >
                   <i className="fa-solid fa-close"></i>
                 </div>
-                <Typography
-                  id="transition-modal-title"
-                  variant="h6"
-                  component="h2"
+                <div
+                  style={{
+                    overflow: "scroll",
+                    padding: "20px",
+                    marginTop: "20px",
+                  }}
                 >
-                  Shopping Cart
-                </Typography>
-                <Typography id="transition-modal-description" sx={{ mt: 2 }}>
                   <Cart />
-                </Typography>
-                <div className="cartButton">
-                  <i className="fa-solid fa-wallet"></i> Checkout
+                  <div className="cartButton">
+                    <i className="fa-solid fa-wallet"></i> Checkout
+                  </div>
                 </div>
               </Box>
             </Fade>
