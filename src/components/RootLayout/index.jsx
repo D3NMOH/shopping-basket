@@ -74,9 +74,6 @@ function RootLayout() {
                   }}
                 >
                   <Cart />
-                  <div className="cartButton">
-                    <i className="fa-solid fa-wallet"></i> Checkout
-                  </div>
                 </div>
               </Box>
             </Fade>

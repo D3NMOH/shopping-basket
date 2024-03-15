@@ -28,7 +28,7 @@
 }
 
 .item {
-  max-width: 70vw;
+  max-width: 800px;
   background-color: var(--primary-color);
   display: flex;
   color: var(--accent-color);
@@ -148,7 +148,19 @@
   font-weight: 700;
   font-size: x-large;
 }
-
+@media screen and (max-width: 925px) {
+  .item {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 70vw;
+    padding: 40px;
+    gap: 1rem;
+    border: 1px solid var(--secondary-color);
+    box-shadow: 0 0px 2px #000, inset 0px 0px 80px var(--secondary-color);
+    transition: all 0.2s;
+  }
+}
 @media screen and (max-width: 700px) {
   .stores {
     display: flex;

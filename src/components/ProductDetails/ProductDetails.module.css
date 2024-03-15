@@ -85,6 +85,8 @@ span {
 @media screen and (min-width: 1200px) {
   .productdetails {
     margin-top: 200px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
   .title {
     position: absolute;
@@ -104,6 +106,8 @@ span {
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   .productdetails {
     margin-top: 200px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
   .title {
     position: absolute;
@@ -124,6 +128,8 @@ span {
   .productdetails {
     grid-template-columns: 1fr 4fr;
     margin-top: 200px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
   .title {
     position: absolute;
