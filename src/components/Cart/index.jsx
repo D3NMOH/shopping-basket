@@ -1,12 +1,16 @@
 import { useContext } from "react";
 import { CartContext } from "../context/context";
-import { ClassNames } from "@emotion/react";
 import styles from "./Cart.module.css";
-import Button from "@mui/material/Button";
 
 const Cart = () => {
   const { cart, removeFromCart, increaseQuantity, decreaseQuantity } =
     useContext(CartContext);
+
+  const totalCost = cart.reduce(
+    (sum, product) => sum + product.price * product.quantity,
+    0
+  );
+
   return (
     <div className={styles.cartBlock}>
       {cart.map((product) => (
@@ -14,7 +18,6 @@ const Cart = () => {
           <button
             onClick={() => removeFromCart(product.id)}
             className={styles.cartRemovButton}
-            style={{}}
           >
             <i className="fa-solid fa-trash-can"></i>
           </button>
@@ -60,10 +63,60 @@ const Cart = () => {
                   </button>
                 </div>
               </div>
+              <p
+                style={{
+                  backgroundColor: "var(--accent-color)",
+                  padding: "5px",
+                  borderRadius: "7px",
+                  color: "#fff",
+                  fontSize: "20px",
+                  width: "max-content",
+                  fontWeight: 500,
+                  textAlign: "right",
+                  justifySelf: "right",
+                }}
+              >
+                {product.price * product.quantity}€
+              </p>
             </div>
           </div>
         </div>
       ))}
+      {cart.length > 0 ? (
+        <p
+          style={{
+            backgroundColor: "var(--accent-color)",
+            padding: "5px",
+            borderRadius: "7px",
+            color: "#fff",
+            fontSize: "20px",
+            width: "max-content",
+            fontWeight: 500,
+            textAlign: "right",
+            justifySelf: "right",
+          }}
+        >
+          {totalCost}€
+        </p>
+      ) : (
+        ""
+      )}
+      {cart.length > 0 ? (
+        <div className="cartButton">
+          <i className="fa-solid fa-wallet"></i> Checkout
+        </div>
+      ) : (
+        <p
+          style={{
+            fontSize: "40px",
+            textAlign: "center",
+            fontWeight: "700",
+            textShadow: "0 0 20px #fff",
+          }}
+        >
+          Your cart is empty 😢
+        </p>
+      )}
     </div>
   );
 };
