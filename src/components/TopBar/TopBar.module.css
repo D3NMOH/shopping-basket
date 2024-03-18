@@ -77,7 +77,7 @@
   flex-direction: row;
   gap: 10px;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 755px) {
   .TopBar {
     width: 100vw;
   }
@@ -85,7 +85,8 @@
     font-size: 0;
   }
   .topBarButton,
-  .topBarButtonActive {
+  .topBarButtonActive,
+  .topBarButton:active {
     gap: 0;
   }
 }

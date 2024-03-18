@@ -1,16 +1,34 @@
 import styles from "./Login.module.css";
 import { TextField, Button } from "@mui/material";
 import { UserContext } from "../context";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import avatar from "../../assets/avatar.jpeg";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 export default function Login() {
-  const { userName, logIn, logged, logOut } = useContext(UserContext);
+  const { userName, logIn, logged, logOut, userId } = useContext(UserContext);
   const [name, setName] = useState("");
+  const [selectedUser, setSelectedUser] = useState(null);
   const handleLogin = () => {
-    console.log(`Username: ${userName}`);
-    logIn(name);
+    if (selectedUser) {
+      console.log(`Username: ${userName}`);
+      logIn(name, selectedUser._id);
+    } else {
+      console.error("No user selected");
+    }
   };
+
+  const [userList, setUserList] = useState([]);
+
+  useEffect(() => {
+    fetch("https://shopping-basket-backend-u4xp.onrender.com/users")
+      .then((response) => response.json())
+      .then((data) => setUserList(data));
+  }, []);
 
   const handleLogout = () => {
     console.log(`Logged out`);
@@ -41,20 +59,36 @@ export default function Login() {
         <>
           <p className={styles.headText}>Login to your customer area!</p>
           <div action="submit" method="post" className={styles.loginForm}>
-            <TextField
-              id="filled-basic"
-              label="Name"
-              variant="filled"
-              color="error"
-              style={{
-                color: "#000",
-                backgroundColor: "#fff",
-                borderRadius: "7px 7px 0 0",
-                overflow: "hidden",
-                boxShadow: "inset 0px 0px 2px var(--accent-color)",
-              }}
-              onChange={(text) => setName(text.target.value)}
-            />
+            <Box sx={{ minWidth: 250 }}>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">
+                  Select user
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={name}
+                  label="Name"
+                  onChange={(event) => {
+                    const selectedUser = userList.find(
+                      (user) => user.username === event.target.value
+                    );
+                    if (selectedUser) {
+                      setSelectedUser(selectedUser);
+                      setName(event.target.value);
+                    }
+                  }}
+                >
+                  {userList.map((user) => {
+                    return (
+                      <MenuItem key={user._id} value={user.username}>
+                        {user.username}, {user.email}
+                      </MenuItem>
+                    );
+                  })}
+                </Select>
+              </FormControl>
+            </Box>
 
             <Button
               variant="contained"

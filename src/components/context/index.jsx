@@ -7,12 +7,16 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [userName, setUserName] = useState("");
   const [items, setItems] = useState([]);
+  const [userId, setUserId] = useState("");
 
-  function logIn(userName) {
-    setUserName(userName);
-  }
+  const logIn = (name, id) => {
+    setUserName(name);
+    setUserId(id);
+  };
+
   function logOut() {
     setUserName("");
+    setUserId("");
   }
 
   return (
@@ -24,6 +28,7 @@ export const UserProvider = ({ children }) => {
         logOut,
         items,
         setItems,
+        userId,
       }}
     >
       {children}

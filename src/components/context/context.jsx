@@ -1,26 +1,35 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useContext } from "react";
+import { UserContext } from "../context/index";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const { userId } = useContext(UserContext);
 
-  const addToCart = (product) => {
-    setCart((currentCart) => {
-      const isProductInCart = currentCart.find(
-        (item) => item.id === product.id
-      );
+  const addToCart = async (product) => {
+    if (!userId) {
+      console.error("userId is undefined");
+      return;
+    }
 
-      if (isProductInCart) {
-        return currentCart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      } else {
-        return [...currentCart, { ...product, quantity: 1 }];
+    const response = await fetch(
+      `https://shopping-basket-backend-u4xp.onrender.com/users/${userId}/product/${product._id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ cartItem: product }),
       }
-    });
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to add product to cart");
+    }
+
+    const updatedCart = await response.json();
+    setCart(updatedCart);
   };
 
   const increaseQuantity = (productId) => {
@@ -41,10 +50,29 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  const removeFromCart = (productId) => {
-    setCart((currentCart) =>
-      currentCart.filter((item) => item.id !== productId)
+  const removeFromCart = async (product) => {
+    if (!userId) {
+      console.error("userId is undefined");
+      return;
+    }
+
+    const response = await fetch(
+      `https://shopping-basket-backend-u4xp.onrender.com/user/${userId}/product/${product._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ cartItem: product }),
+      }
     );
+
+    if (!response.ok) {
+      throw new Error("Failed to add product to cart");
+    }
+
+    const updatedCart = await response.json();
+    setCart(updatedCart);
   };
 
   return (
