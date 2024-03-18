@@ -1,11 +1,8 @@
 .productdetails {
+  width: 90vw;
+  max-width: 1000px;
+  margin-top: 80px;
   display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-template-rows: 1fr 0.7fr;
-  flex-direction: row;
-  gap: 50px;
-  align-items: flex-start;
-  justify-content: center;
   padding: 20px;
 }
 .description {
@@ -18,6 +15,8 @@
 .preview {
   padding: 20px;
   border-radius: 20px;
+  height: max-content;
+  width: max-content;
   box-shadow: #000 0 5px 10px;
 }
 .previewImg {
@@ -82,66 +81,89 @@ span {
   scale: 0.95;
 }
 
+/* ================grid===========*/
+.productdetails {
+  display: grid;
+  gap: 10px 50px;
+  grid-template-areas:
+    "title title title title"
+    "preview about about about"
+    "preview props props props"
+    "preview stars stars stars"
+    "preview priceCont priceCont priceCont"
+    "preview delivery delivery delivery"
+    "stock prodButton prodButton prodButton";
+}
+.title {
+  grid-area: title;
+}
+.preview {
+  grid-area: preview;
+}
+.about {
+  grid-area: about;
+}
+.props {
+  grid-area: props;
+}
+.stars {
+  grid-area: stars;
+}
+.priceCont {
+  grid-area: priceCont;
+}
+.delivery {
+  grid-area: delivery;
+}
+.prodButton {
+  grid-area: prodButton;
+}
+.stock {
+  grid-area: stock;
+}
+/* ================grid===========*/
+
 @media screen and (min-width: 1200px) {
   .productdetails {
-    margin-top: 200px;
     padding-left: 40px;
     padding-right: 40px;
   }
   .title {
-    position: absolute;
-    margin-top: -100px;
     font-size: 3rem;
     text-align: center;
     justify-self: center;
   }
-  .preview {
-    max-width: 30vw;
-  }
   .previewImg,
   .previewImgGlow {
     width: 30vw;
+    max-width: 300px;
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  .productdetails {
-    margin-top: 200px;
-    padding-left: 40px;
-    padding-right: 40px;
-  }
   .title {
-    position: absolute;
-    margin-top: -100px;
     font-size: 3rem;
     text-align: center;
     justify-self: center;
   }
-  .preview {
-    max-width: 30vw;
-  }
+
   .previewImg,
   .previewImgGlow {
     width: 30vw;
+    max-width: 300px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .productdetails {
-    grid-template-columns: 1fr 4fr;
-    margin-top: 200px;
     padding-left: 40px;
     padding-right: 40px;
   }
   .title {
-    position: absolute;
-    margin-top: -100px;
     font-size: 3rem;
     text-align: center;
     justify-self: center;
   }
   .preview {
     border-radius: 10px;
-    width: 80vw;
-    max-width: 30vw;
   }
   .previewImg,
   .previewImgGlow {
@@ -151,34 +173,61 @@ span {
 
 @media screen and (min-width: 576px) and (max-width: 767px) {
   .productdetails {
-    grid-template-columns: 1fr;
-    grid-template-rows: max-content;
-    gap: 10px;
-    margin-top: 100px;
+    display: grid;
+    gap: 10px 50px;
+    grid-template-areas:
+      "title title"
+      "preview preview"
+      "about about"
+      "props props"
+      "stars delivery"
+      "priceCont stock"
+      "prodButton prodButton";
+    padding-left: 40px;
+    padding-right: 40px;
   }
-  .preview {
-    border-radius: 10px;
-    width: 80vw;
-  }
-  .previewImg,
-  .previewImgGlow {
-    width: 80vw;
-  }
-}
-@media screen and (max-width: 575px) {
-  .productdetails {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    grid-template-rows: max-content;
-    margin-top: 100px;
+  .title {
+    font-size: 2rem;
+    text-align: center;
   }
   .preview {
     justify-self: center;
     border-radius: 10px;
-    width: 80vw;
   }
   .previewImg,
   .previewImgGlow {
-    width: 80vw;
+    object-fit: contain;
+    max-width: 80vw;
+    max-height: 30vh;
+  }
+}
+@media screen and (max-width: 575px) {
+  .productdetails {
+    display: grid;
+    gap: 10px 50px;
+    grid-template-areas:
+      "title title"
+      "preview preview"
+      "about about"
+      "props props"
+      "stars delivery"
+      "priceCont stock"
+      "prodButton prodButton";
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .preview {
+    justify-self: center;
+    border-radius: 10px;
+  }
+  .previewImg,
+  .previewImgGlow {
+    object-fit: contain;
+    max-width: 80vw;
+    max-height: 30vh;
   }
 }
