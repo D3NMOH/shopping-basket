@@ -6,8 +6,20 @@ import gplay from "../../assets/gplay.png";
 import appstore from "../../assets/appstore.svg";
 import { Link } from "react-router-dom";
 import { promote } from "../../data/promote";
+import { useEffect, useState } from "react";
 
 export default function HomePage() {
+  const [sale, setSale] = useState([]);
+
+  useEffect(() => {
+    fetch("https://shopping-basket-backend-u4xp.onrender.com/sales")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("ergebnisse", data.sales);
+        setSale(data.sales);
+      });
+  }, []);
+
   return (
     <div className={styles.container}>
       <div>
@@ -38,13 +50,9 @@ export default function HomePage() {
           </div>
         </div>
         <div className={styles.itemList}>
-          {promote.map((item) => {
+          {sale.map((item) => {
             return (
-              <Link
-                key={item.id}
-                to={`/Products/${item.id}`}
-                style={{ textDecoration: "none" }}
-              >
+              <Link key={item._id} style={{ textDecoration: "none" }}>
                 <div className={styles.item}>
                   <div className={styles.promoImageContainer}>
                     <img src={item.thumbnail} className={styles.promoImage} />
@@ -54,8 +62,7 @@ export default function HomePage() {
                     />
                   </div>
                   <div>
-                    <p className={styles.title}>{item.title}</p>
-                    <p>{item.description}</p>
+                    <p className={styles.title}>{item.productName}</p>
                     <p className={styles.price}>{item.price} €</p>
                   </div>
                 </div>

@@ -29,6 +29,7 @@
 
 .item {
   max-width: 800px;
+  width: min-content;
   background-color: var(--primary-color);
   display: flex;
   color: var(--accent-color);
@@ -146,6 +147,7 @@
 }
 .title {
   font-weight: 700;
+  text-wrap: wrap;
   font-size: x-large;
 }
 @media screen and (max-width: 925px) {
