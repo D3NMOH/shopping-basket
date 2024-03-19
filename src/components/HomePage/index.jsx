@@ -7,6 +7,7 @@ import appstore from "../../assets/appstore.svg";
 import { Link } from "react-router-dom";
 import { promote } from "../../data/promote";
 import { useEffect, useState } from "react";
+import saleImg from "../../assets/sale.svg";
 
 export default function HomePage() {
   const [sale, setSale] = useState([]);
@@ -61,10 +62,10 @@ export default function HomePage() {
                       className={styles.promoImageGlow}
                     />
                   </div>
-                  <div>
+                  <div style={{ maxWidth: "200px" }}>
                     <p className={styles.title}>{item.productName}</p>
-                    <p className={styles.price}>{item.price} €</p>
                   </div>
+                  <p className={styles.price}>{item.price} €</p>
                 </div>
               </Link>
             );
