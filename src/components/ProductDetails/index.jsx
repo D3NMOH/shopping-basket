@@ -10,8 +10,6 @@ export function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [stars, setStars] = useState(0);
 
-  // const product = goods.find((product) => product._id === parseInt(prodId));
-
   useEffect(() => {
     fetch(
       `https://shopping-basket-backend-u4xp.onrender.com/products/${prodId}`
