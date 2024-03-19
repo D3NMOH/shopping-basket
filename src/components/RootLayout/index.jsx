@@ -73,7 +73,7 @@ function RootLayout() {
                     marginTop: "20px",
                   }}
                 >
-                  <Cart />
+                  <Cart handleCloseCart={handleCloseCart} />
                 </div>
               </Box>
             </Fade>
