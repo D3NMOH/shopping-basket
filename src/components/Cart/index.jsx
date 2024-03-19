@@ -3,7 +3,7 @@ import { CartContext } from "../context/context";
 import styles from "./Cart.module.css";
 import { UserContext } from "../context/index";
 
-export default function Cart() {
+export default function Cart({ handleCloseCart }) {
   const { userId } = useContext(UserContext);
   const { cart, removeFromCart, decreaseQuantity, increaseQuantity } =
     useContext(CartContext);
@@ -34,6 +34,9 @@ export default function Cart() {
 
     if (!response.ok) {
       throw new Error("Failed to clear cart");
+    }
+    if (response) {
+      handleCloseCart();
     }
   };
   const totalPrice =
