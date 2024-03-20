@@ -49,12 +49,12 @@ export default function Cart({ handleCloseCart }) {
           products.map(({ product }) => {
             return (
               <div key={product._id} className={styles.cartItem}>
-                {/* <button
+                <button
                   onClick={() => removeFromCart(product._id)}
                   className={styles.cartRemovButton}
                 >
                   <i className="fa-solid fa-trash-can"></i>
-                </button> */}
+                </button>
                 <div className={styles.cartGrid}>
                   <div className={styles.imgContainer}>
                     <img
@@ -78,7 +78,7 @@ export default function Cart({ handleCloseCart }) {
                         alignSelf: "flex-end",
                       }}
                     >
-                      {/* <p className={styles.qty}>Qty: </p>
+                      <p className={styles.qty}>Qty: </p>
                       <div className={styles.quantity}>
                         <button
                           className={styles.decrease}
@@ -95,7 +95,7 @@ export default function Cart({ handleCloseCart }) {
                         >
                           +
                         </button>
-                      </div> */}
+                      </div>
                     </div>
                     <p
                       style={{
